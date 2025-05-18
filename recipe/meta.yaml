@@ -1,5 +1,5 @@
 {% set name = "chafa" %}
-{% set version = "1.14.5" %}
+{% set version = "1.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/hpjansson/{{ name }}/releases/download/{{ version }}/chafa-{{ version }}.tar.xz
-  sha256: 7b5b384d5fb76a641d00af0626ed2115fb255ea371d9bef11f8500286a7b09e5
+  sha256: bf863e57b6200b696bde1742aa95d7feb8cd23b9df1e91e91859b2b1e54fd290
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
