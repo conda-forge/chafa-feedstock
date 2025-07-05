@@ -11,6 +11,12 @@ Summary: Versatile and fast Unicode/ASCII/ANSI graphics renderer
 
 Development: https://github.com/hpjansson/chafa
 
+Documentation: https://hpjansson.org/chafa/man
+
+The premier UX of the 21st century just got a little better: With chafa,
+you can now view very, very reasonable approximations of pictures and animations in the comfort of your favorite terminal emulator.
+The power of ANSI X3.64 compels you!
+
 Current build status
 ====================
 

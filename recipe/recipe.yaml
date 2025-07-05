@@ -1,0 +1,69 @@
+context:
+  name: Chafa
+  version: "1.16.2"
+  sha256: 657898dd9a89b45130a44c1efe1fc03e2c7bd00c2f543ed7111613cb9e7861df
+  build_number: 0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/hpjansson/${{ name|lower }}/releases/download/${{ version }}/chafa-${{ version }}.tar.xz
+  sha256: ${{ sha256 }}
+
+build:
+  number: ${{ build_number }}
+  skip:
+    - win
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - make
+    - pkg-config
+  host:
+    - freetype
+    - cairo
+    - glib
+    - libjpeg-turbo
+    - librsvg
+    - libtiff
+    - libwebp
+    - libavif
+    - libjxl
+    - if: linux
+      then:
+        - libpng
+        - zlib
+    - if: osx
+      then:
+        - gdk-pixbuf
+        - libintl-devel
+  run: []
+  # Chafa has C API
+  run_exports:
+    - ${{ pin_subpackage(name|lower, upper_bound="x") }}
+
+tests:
+  - script:
+    - chafa --version
+
+about:
+  homepage: https://hpjansson.org/chafa
+  repository: https://github.com/hpjansson/chafa
+  documentation: https://hpjansson.org/chafa/man
+  summary: Versatile and fast Unicode/ASCII/ANSI graphics renderer
+  description: |
+    The premier UX of the 21st century just got a little better: With chafa,
+    you can now view very, very reasonable approximations of pictures and animations in the comfort of your favorite terminal emulator.
+    The power of ANSI X3.64 compels you!
+  license: LGPL-3.0-or-later
+  license_file: COPYING
+
+extra:
+  recipe-maintainers:
+    - pavelzw
+    - eunos-1128
+    - peterjc
