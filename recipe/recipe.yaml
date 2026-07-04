@@ -2,7 +2,7 @@ context:
   name: Chafa
   version: "1.18.2"
   sha256: 0b8d9ba9f347e8b6c0c71878217c9b0e478b4a42aa4babea0bf20840567239c2
-  build_number: 0
+  build_number: 1
 
 package:
   name: ${{ name|lower }}
