@@ -14,8 +14,6 @@ source:
 
 build:
   number: ${{ build_number }}
-  skip:
-    - win
 
 requirements:
   build:
@@ -23,6 +21,9 @@ requirements:
     - ${{ stdlib('c') }}
     - make
     - pkgconf
+    - if: win
+      then:
+        - autotools_clang_conda
   host:
     - freetype
     - cairo
@@ -63,6 +64,7 @@ about:
   license_file: COPYING
 
 extra:
+  feedstock-name: chafa
   recipe-maintainers:
     - pavelzw
     - eunos-1128
